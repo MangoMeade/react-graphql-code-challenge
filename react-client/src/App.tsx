@@ -1,11 +1,16 @@
-import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import HomePage from './pages/HomePage';
+const queryClient = new QueryClient();
 
 function App() {
-  return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
-  )
-};
+	return (
+		<ChakraProvider>
+			<QueryClientProvider client={queryClient}>
+				<HomePage />
+			</QueryClientProvider>
+		</ChakraProvider>
+	);
+}
 
 export default App;
